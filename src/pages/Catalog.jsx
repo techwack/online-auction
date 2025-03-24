@@ -1,5 +1,3 @@
-// src/pages/Catalog.jsx
-
 function Catalog() {
   const items = [
     {
@@ -23,37 +21,37 @@ function Catalog() {
   ];
 
   return (
-    <div
-      style={{
+    <div style={{ padding: "40px", backgroundColor: "#f7f7f7", minHeight: "100vh" }}>
+      <h2 style={{ textAlign: "center", marginBottom: "30px" }}>Auction Catalog</h2>
+      <div style={{
         display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
         justifyContent: "center",
-        minHeight: "80vh",
-        padding: "20px",
-      }}
-    >
-      <h2>Auction Catalog</h2>
-      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", justifyContent: "center" }}>
+        flexWrap: "wrap",
+        gap: "20px"
+      }}>
         {items.map((item) => (
-          <div
-            key={item.id}
-            style={{
-              border: "1px solid #ccc",
-              padding: "10px",
-              borderRadius: "8px",
-              textAlign: "center",
-              width: "220px",
-            }}
-          >
-            <img
-              src={item.image}
-              alt={item.name}
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
-            <h3>{item.name}</h3>
-            <p>Current Bid: {item.currentBid}</p>
-            <button>Place Bid</button>
+          <div key={item.id} style={{
+            backgroundColor: "white",
+            border: "1px solid #ddd",
+            padding: "20px",
+            borderRadius: "10px",
+            width: "220px",
+            textAlign: "center",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
+          }}>
+            <img src={item.image} alt={item.name} style={{ width: "100%", borderRadius: "6px" }} />
+            <h3 style={{ margin: "10px 0" }}>{item.name}</h3>
+            <p style={{ margin: "5px 0", fontWeight: "bold" }}>Current Bid: {item.currentBid}</p>
+            <button style={{
+              padding: "8px 12px",
+              backgroundColor: "#28a745",
+              color: "white",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer"
+            }}>
+              Place Bid
+            </button>
           </div>
         ))}
       </div>
