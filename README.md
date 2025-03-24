@@ -1,12 +1,100 @@
-# React + Vite
+🛒 Online Auction Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern **Online Auction Platform** built using **React (Vite)** for the frontend and **Express.js** for the backend. It allows users to register, log in, browse a live catalog of items, and participate in auctions by placing bids.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🧑‍💻 **User Authentication** — Register and log in securely
+- 🛍️ **Auction Catalog** — View available auction items
+- 💰 **Place Bids** — (To be implemented) Users can place bids in real-time
+- 🧭 **Navigation Bar** — Easy navigation between pages
+- ✨ Clean and responsive UI
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧩 Tech Stack
+
+### Frontend:
+- React (via Vite)
+- React Router
+- CSS (Inline/Custom styling)
+
+### Backend (in progress):
+- Node.js with Express.js
+- MongoDB (optional for future user/item storage)
+
+---
+
+## 📁 Project Structure
+
+```
+online-auction/
+├── backend/                  # Express server (To be added)
+├── online-auction-frontend/ # React frontend (Vite)
+│   ├── public/
+│   ├── src/
+│   │   ├── components/       # Navbar, etc.
+│   │   ├── pages/            # Login, Register, Catalog, Dashboard
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
+```
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/techwack/online-auction.git
+cd online-auction
+```
+
+---
+
+### 2. Frontend Setup
+
+```bash
+cd online-auction-frontend
+npm install
+npm run dev
+```
+
+The app will run at `http://localhost:5173/` (or similar). It opens with the **Register Page**.
+
+---
+
+### 3. Backend Setup (optional for now)
+
+To be added in `/backend` folder using Express.js.
+
+---
+
+## 📷 Screenshots
+
+
+
+---
+
+## ✅ To Do
+
+- [x] Register & Login pages
+- [x] Auction catalog display
+- [ ] Backend with Express & MongoDB
+- [ ] Bid placement functionality
+- [ ] Payment integration (Stripe/Razorpay)
+
+---
+
+## 👩‍💻 Author
+
+**Divyanshi**  
+SRM Institute of Science and Technology  
+GitHub: [@techwack](https://github.com/techwack)
+
+
+Let me know if you'd like me to include **screenshots**, **GIFs**, or **backend setup instructions** once it's done.
