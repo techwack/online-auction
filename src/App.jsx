@@ -9,15 +9,15 @@ function App() {
       <div>
         {/* Navigation Bar */}
         <nav style={{ padding: "10px", backgroundColor: "#f0f0f0" }}>
-          <Link to="/" style={{ marginRight: "10px" }}>Login</Link>
-          <Link to="/register" style={{ marginRight: "10px" }}>Register</Link>
+          <Link to="/" style={{ marginRight: "10px" }}>Register</Link>
+          <Link to="/Login" style={{ marginRight: "10px" }}>Login</Link>
           <Link to="/catalog">Catalog</Link>
         </nav>
 
         {/* Routes */}
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Register />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/catalog" element={<Catalog />} />
         </Routes>
       </div>
