@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -16,37 +16,24 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Registration Successful:", formData);
+    console.log("Registration data:", formData);
+
+    // Normally you'd send this data to your backend API here
+
+    // Redirect to Login page after "registration"
     navigate("/login");
   };
 
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100vh",
-      backgroundColor: "#f4f4f4",
-    }}>
-      <div style={{
-        backgroundColor: "white",
-        padding: "40px",
-        borderRadius: "12px",
-        boxShadow: "0 0 15px rgba(0,0,0,0.1)",
-        width: "350px",
-        textAlign: "center"
-      }}>
-        <h2 style={{ marginBottom: "20px", color: "#333" }}>Create Account</h2>
-        <form onSubmit={handleSubmit} style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
-        }}>
+    <div style={wrapperStyle}>
+      <div style={cardStyle}>
+        <h2 style={titleStyle}>Register</h2>
+        <form onSubmit={handleSubmit} style={formStyle}>
           <input
             type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
+            name="name"
+            placeholder="Full Name"
+            value={formData.name}
             onChange={handleChange}
             required
             style={inputStyle}
@@ -69,9 +56,7 @@ function Register() {
             required
             style={inputStyle}
           />
-          <button type="submit" style={buttonStyle}>
-            Register
-          </button>
+          <button type="submit" style={buttonStyle}>Register</button>
         </form>
         <p style={{ marginTop: "15px", fontSize: "14px" }}>
           Already have an account?{" "}
@@ -87,6 +72,29 @@ function Register() {
   );
 }
 
+const wrapperStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh",
+  backgroundColor: "#f4f4f4",
+};
+
+const cardStyle = {
+  backgroundColor: "white",
+  padding: "40px",
+  borderRadius: "12px",
+  boxShadow: "0 0 15px rgba(0,0,0,0.1)",
+  width: "350px",
+  textAlign: "center",
+};
+
+const formStyle = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "15px",
+};
+
 const inputStyle = {
   padding: "10px 15px",
   borderRadius: "6px",
@@ -98,10 +106,15 @@ const buttonStyle = {
   padding: "10px 15px",
   borderRadius: "6px",
   border: "none",
-  backgroundColor: "#007BFF",
+  backgroundColor: "#28a745",
   color: "white",
   fontSize: "16px",
   cursor: "pointer",
+};
+
+const titleStyle = {
+  marginBottom: "20px",
+  color: "#333",
 };
 
 export default Register;
