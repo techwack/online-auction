@@ -1,100 +1,109 @@
-🛒 Online Auction Platform
+# 🏷️ AuctionHub — Online Auction Platform
 
-This is a modern **Online Auction Platform** built using **React (Vite)** for the frontend and **Express.js** for the backend. It allows users to register, log in, browse a live catalog of items, and participate in auctions by placing bids.
+A full stack online auction platform where users can register, browse live auction items, place bids, and list their own items for auction.
 
----
-
-## 🚀 Features
-
-- 🧑‍💻 **User Authentication** — Register and log in securely
-- 🛍️ **Auction Catalog** — View available auction items
-- 💰 **Place Bids** — (To be implemented) Users can place bids in real-time
-- 🧭 **Navigation Bar** — Easy navigation between pages
-- ✨ Clean and responsive UI
+🔗 **Live Demo:** [https://online-auction-hupwjzv3i-djain31804-5045s-projects.vercel.app](https://online-auction-hupwjzv3i-djain31804-5045s-projects.vercel.app)
 
 ---
 
-## 🧩 Tech Stack
+## Features
 
-### Frontend:
-- React (via Vite)
-- React Router
-- CSS (Inline/Custom styling)
-
-### Backend (in progress):
-- Node.js with Express.js
-- MongoDB (optional for future user/item storage)
+- **User Authentication** — Register and login with JWT-based secure auth, passwords hashed with bcrypt
+- **Live Auction Catalog** — Browse all active auction items with current bid and end date
+- **Place Bids** — Authenticated users can place bids in real time; bid must exceed current highest bid
+- **List Items** — Logged-in users can list new items for auction with description and end date
+- **Protected Routes** — Dashboard requires login; unauthenticated bid attempts redirect to login
 
 ---
 
-## 📁 Project Structure
+## Tech Stack
+
+**Frontend**
+- React 19 (Vite)
+- React Router v7
+- Fetch API for HTTP requests
+
+**Backend**
+- Node.js + Express.js
+- JWT (jsonwebtoken) for authentication
+- bcryptjs for password hashing
+- JSON file-based storage
+
+**Deployment**
+- Frontend: Vercel
+- Backend: Render
+
+---
+
+## Project Structure
 
 ```
 online-auction/
-├── backend/                  # Express server (To be added)
-├── online-auction-frontend/ # React frontend (Vite)
-│   ├── public/
-│   ├── src/
-│   │   ├── components/       # Navbar, etc.
-│   │   ├── pages/            # Login, Register, Catalog, Dashboard
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── package.json
-│   └── vite.config.js
+├── backend/
+│   ├── data/
+│   │   ├── items.json        # Auction items storage
+│   │   └── users.json        # User storage
+│   ├── middleware/
+│   │   └── auth.js           # JWT verification middleware
+│   ├── routes/
+│   │   ├── auth.js           # POST /api/auth/register, /api/auth/login
+│   │   └── items.js          # GET/POST /api/items, POST /api/items/:id/bid
+│   ├── server.js
+│   └── package.json
+├── src/
+│   ├── components/
+│   │   └── Navbar.jsx
+│   ├── pages/
+│   │   ├── Register.jsx
+│   │   ├── Login.jsx
+│   │   ├── Catalog.jsx
+│   │   └── Dashboard.jsx
+│   ├── services/
+│   │   └── api.js            # All API calls in one place
+│   ├── App.jsx
+│   └── main.jsx
+├── vite.config.js
+└── package.json
 ```
 
 ---
 
-## 🛠️ Getting Started
+## API Endpoints
 
-### 1. Clone the Repository
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/api/auth/register` | No | Register new user |
+| POST | `/api/auth/login` | No | Login, returns JWT |
+| GET | `/api/items` | No | Get all auction items |
+| POST | `/api/items` | Yes | Create new auction item |
+| POST | `/api/items/:id/bid` | Yes | Place a bid on an item |
+
+---
+
+## Run Locally
 
 ```bash
+# Clone the repo
 git clone https://github.com/techwack/online-auction.git
 cd online-auction
-```
 
----
+# Start backend (Terminal 1)
+cd backend
+npm install
+node server.js
 
-### 2. Frontend Setup
-
-```bash
-cd online-auction-frontend
+# Start frontend (Terminal 2)
+cd ..
 npm install
 npm run dev
 ```
 
-The app will run at `http://localhost:5173/` (or similar). It opens with the **Register Page**.
+Frontend runs at `http://localhost:5173` — the Vite proxy forwards `/api` calls to the backend on port 5000.
 
 ---
 
-### 3. Backend Setup (optional for now)
+## Author
 
-To be added in `/backend` folder using Express.js.
-
----
-
-## 📷 Screenshots
-
-
-
----
-
-## ✅ To Do
-
-- [x] Register & Login pages
-- [x] Auction catalog display
-- [ ] Backend with Express & MongoDB
-- [ ] Bid placement functionality
-- [ ] Payment integration (Stripe/Razorpay)
-
----
-
-## 👩‍💻 Author
-
-**Divyanshi**  
+**Divyanshi Jain**  
 SRM Institute of Science and Technology  
-GitHub: [@techwack](https://github.com/techwack)
-
-
-Let me know if you'd like me to include **screenshots**, **GIFs**, or **backend setup instructions** once it's done.
+GitHub: [@techwack](https://github.com/techwack) | LinkedIn: [linkedin.com/in/divyanshijain31](https://linkedin.com/in/divyanshijain31)
